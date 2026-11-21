@@ -34,7 +34,7 @@
     "typescript": "~5.7",
     "typescript-eslint": "^8",
     "vite": "^6",
-    "vitest": "^3"
+    "vitest": "^5"
   },
   "main": "desktop/main.cjs",
   "productName": "Capricorn",
