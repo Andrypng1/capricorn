@@ -2,7 +2,7 @@
 
 Organizador local de enlaces de clientes y proyectos, desarrollado con Electron, React, TypeScript y SQLite. La aplicación usa la identidad visual de Capricorn y funciona sin cuentas ni servicios de IA.
 
-Capricorn está diseñado para **Windows x64**. Usa un ejecutable de credenciales escrito en C#, OCR mediante PowerShell de Windows y un instalador NSIS. Compila `credentials.exe` con `npm run build:credentials` antes de empaquetar o probar los flujos que usan credenciales.
+Capricorn está diseñado para **Windows x64**. Usa un ejecutable de credenciales escrito en C# y OCR mediante PowerShell de Windows. Compila `credentials.exe` con `npm run build:credentials` antes de empaquetar o probar los flujos que usan credenciales.
 
 ## Privacidad y seguridad
 
@@ -10,12 +10,16 @@ La aplicación funciona sin cuentas ni telemetría y guarda sus datos localmente
 
 Las integraciones pueden consultar Konect, Twitch, Kick, YouTube y Google Drive u otros destinos vinculados. Cuando un proveedor requiere credenciales, el usuario aporta las suyas y debe respetar sus términos de servicio.
 
-## Descargas
+## Descargas para Windows x64
 
-Cuando haya una versión publicada, descarga el instalador y su hash SHA-256 desde la sección **Releases** del repositorio. Los instaladores no están firmados y Windows SmartScreen puede mostrar una advertencia. Compara el hash con el publicado antes de ejecutar el archivo.
+Abre [la última versión de Capricorn](https://github.com/Andrypng1/capricorn/releases/latest). En **Assets**, descarga `Capricorn-<versión>-Instalador-Windows-x64.exe` y su archivo `.sha256`. Para ver versiones anteriores, consulta [todas las versiones](https://github.com/Andrypng1/capricorn/releases).
+
+El instalador se ejecuta por usuario. Para actualizar, sal de Capricorn desde la bandeja de Windows antes de abrir el nuevo instalador. El instalador conserva tus datos locales.
+
+Los instaladores se distribuyen sin firma digital, por lo que Windows SmartScreen puede mostrar una advertencia. Comprueba que el valor SHA-256 de tu descarga coincide con el archivo `.sha256` de esa misma versión antes de ejecutar el instalador. Abre PowerShell en la carpeta de descarga y sustituye el nombre de ejemplo por el del archivo descargado.
 
 ```powershell
-Get-FileHash -Algorithm SHA256 -LiteralPath .\Capricorn-Instalador-Windows-x64.exe
+Get-FileHash -Algorithm SHA256 -LiteralPath '.\Capricorn-<versión>-Instalador-Windows-x64.exe'
 ```
 
 Para compilar desde el código en Windows x64 con Node.js 24 LTS y npm:
