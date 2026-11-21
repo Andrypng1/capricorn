@@ -1,0 +1,26 @@
+{
+  "drive": [
+    "drive.google.com",
+    "docs.google.com"
+  ],
+  "dropbox": [
+    "dropbox.com",
+    "dropboxusercontent.com"
+  ],
+  "wetransfer": [
+    "wetransfer.com",
+    "we.tl"
+  ],
+  "mega": [
+    "mega.nz",
+    "mega.io"
+  ],
+  "frame": [
+    "frame.io",
+    "f.io"
+  ],
+  "cloudflare": [
+    "r2.dev",
+    "r2.cloudflarestorage.com"
+  ]
+}

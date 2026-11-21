@@ -1,0 +1,76 @@
+{
+  "name": "capricorn",
+  "version": "0.5.13",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "start": "npm run build && electron .",
+    "package": "npm run build:credentials && npm run build && electron-builder --win nsis --x64",
+    "test:desktop": "electron --disable-gpu . --self-test",
+    "package:dir": "npm run build:credentials && npm run build && electron-builder --win --x64 --dir",
+    "build:credentials": "powershell -NoProfile -File installer/build-credentials.ps1"
+  },
+  "dependencies": {
+    "fflate": "0.8.3",
+    "react": "^19",
+    "react-dom": "^19",
+    "zustand": "^5"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^4",
+    "electron": "45.3.4",
+    "electron-builder": "^26",
+    "eslint": "^9",
+    "prettier": "^3",
+    "tailwindcss": "^4",
+    "typescript": "~5.7",
+    "typescript-eslint": "^8",
+    "vite": "^6",
+    "vitest": "^3"
+  },
+  "main": "desktop/main.cjs",
+  "productName": "Capricorn",
+  "description": "Organizador local de enlaces",
+  "author": "AndryPNG",
+  "license": "MIT",
+  "build": {
+    "appId": "local.capricorn.desktop",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "desktop/**/*",
+      "dist/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "desktop/icon.ico",
+        "to": "capricorn-zodiac.ico"
+      }
+    ],
+    "win": {
+      "icon": "desktop/icon.ico",
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "installerLanguages": [
+        "es_ES"
+      ]
+    },
+    "asarUnpack": [
+      "desktop/credentials.exe"
+    ]
+  }
+}

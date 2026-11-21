@@ -1,0 +1,41 @@
+{
+  "instagram": [
+    "instagram.com"
+  ],
+  "tiktok": [
+    "tiktok.com"
+  ],
+  "youtube": [
+    "youtube.com",
+    "youtu.be"
+  ],
+  "facebook": [
+    "facebook.com",
+    "fb.com"
+  ],
+  "x": [
+    "x.com",
+    "twitter.com"
+  ],
+  "linkedin": [
+    "linkedin.com"
+  ],
+  "threads": [
+    "threads.net",
+    "threads.com"
+  ],
+  "twitch": [
+    "twitch.tv"
+  ],
+  "whatsapp": [
+    "wa.me",
+    "whatsapp.com"
+  ],
+  "behance": [
+    "behance.net"
+  ],
+  "konect": ["konect.gg"],
+  "kick": [
+    "kick.com"
+  ]
+}
