@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://*.supabase.co; base-uri 'none'; form-action 'none'">
+  <title>Revisión · Capricorn</title>
+  <link rel="stylesheet" href="review.css">
+  <script src="review.js" defer></script>
+</head>
+<body>
+  <main>
+    <header><span class="wordmark">Capricorn</span><h1 id="title">Revisión de entrega</h1>
+      <p id="details" hidden></p><a id="video" target="_blank" rel="noopener noreferrer" hidden>Ver archivo de la entrega</a>
+    </header>
+    <p id="feedback" role="status" aria-live="polite">Consultando el enlace…</p>
+    <form id="comment" hidden>
+      <label for="message">¿Qué cambios necesitas?</label>
+      <textarea id="message" maxlength="2000" rows="6" required placeholder="Escribe el cambio y, si aplica, en qué parte del video."></textarea>
+      <button type="submit">Enviar comentario</button>
+    </form>
+  </main>
+</body>
+</html>

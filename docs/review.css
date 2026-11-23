@@ -1,0 +1,16 @@
+:root{color-scheme:dark;--background:#171513;--card:#25201c;--ink:#f5eee4;--muted:#cfc0ad;--accent:#e8b882;--border:#635242}
+*{box-sizing:border-box}
+body{margin:0;background:var(--background);color:var(--ink);font:16px/1.55 system-ui,sans-serif}
+main{margin:0 auto;padding:clamp(28px,7vw,90px) clamp(18px,4vw,34px);max-width:660px}
+.wordmark{font:1.25rem Georgia,serif;color:var(--accent)}
+h1{margin:.5em 0 .25em;font:clamp(2rem,5vw,3rem)/1.15 Georgia,serif;overflow-wrap:anywhere}
+p{color:var(--muted);margin:12px 0}
+a{color:var(--accent);text-underline-offset:.18em}
+form{margin-top:24px;padding-top:20px;border-top:1px solid var(--border)}
+label{display:block;font-weight:600}
+textarea{display:block;width:100%;resize:vertical;margin:10px 0 16px;padding:12px;border-radius:10px;
+  border:1px solid var(--border);background:var(--card);color:var(--ink);font:inherit}
+button{border:0;border-radius:9px;background:var(--accent);color:var(--background);padding:10px 16px;font:inherit;font-weight:650}
+button:disabled{opacity:.7}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+[hidden]{display:none!important}
