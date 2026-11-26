@@ -1,7 +1,9 @@
-const fragment = new URLSearchParams(location.hash.slice(1));
-const project = fragment.get("project") ?? "";
-const key = fragment.get("key") ?? "";
-const token = fragment.get("token") ?? "";
+const hash = location.hash.slice(1);
+const compact = /^([a-z0-9]{20})\.([A-Za-z0-9_-]{10,100})\.([A-Za-z0-9_-]{43})$/.exec(hash);
+const fragment = new URLSearchParams(hash);
+const project = compact?.[1] ?? fragment.get("project") ?? "";
+const key = compact ? "sb_publishable_" + compact[2] : fragment.get("key") ?? "";
+const token = compact?.[3] ?? fragment.get("token") ?? "";
 const form = document.querySelector("#comment");
 const message = document.querySelector("#message");
 const button = form.querySelector("button");
@@ -24,6 +26,12 @@ async function load() {
     const version = await rpc("capricorn_review",{});
     if (!version) throw new Error("Este enlace venció o ya no está disponible. Pídele uno nuevo al editor.");
     document.querySelector("#title").textContent = version.title;
+    if (typeof version.clientName === "string" && version.clientName) {
+      const greeting = document.querySelector("#greeting");
+      greeting.textContent = "Hola, " + version.clientName + ". Aquí tienes tu entrega.";
+      greeting.hidden = false;
+      form.querySelector("label").textContent = "¿Qué te gustaría ajustar, " + version.clientName + "?";
+    }
     const details = document.querySelector("#details");
     details.textContent = "Versión " + version.version + " · " + version.status;
     details.hidden = false;
