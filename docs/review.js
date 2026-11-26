@@ -1,9 +1,12 @@
 const hash = location.hash.slice(1);
+const defaultProject = "enjklvalzufxzxddaqdl";
+const defaultPublishableKey = "sb_publishable_cfjgHVViImyeDwJgJAtTuw_2m_BF0hM";
 const compact = /^([a-z0-9]{20})\.([A-Za-z0-9_-]{10,100})\.([A-Za-z0-9_-]{43})$/.exec(hash);
 const fragment = new URLSearchParams(hash);
-const project = compact?.[1] ?? fragment.get("project") ?? "";
-const key = compact ? "sb_publishable_" + compact[2] : fragment.get("key") ?? "";
-const token = compact?.[3] ?? fragment.get("token") ?? "";
+const short = /^r=([A-Za-z0-9_-]{43})$/.exec(hash);
+const project = short ? defaultProject : compact?.[1] ?? fragment.get("project") ?? "";
+const key = short ? defaultPublishableKey : compact ? "sb_publishable_" + compact[2] : fragment.get("key") ?? "";
+const token = short?.[1] ?? compact?.[3] ?? fragment.get("token") ?? "";
 const form = document.querySelector("#comment");
 const message = document.querySelector("#message");
 const button = form.querySelector("button");
